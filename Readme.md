@@ -43,22 +43,8 @@ This project is an AI-powered **Data Analysis Agent** built with **FastAPI**, **
 6. **Run Frontend (Streamlit)**
    `streamlit run app.py`
 
-## **🔄 System Flow**
-
-**Flow:**
-**Flow:**
-
-    1.  **User Interaction:** User enters a natural language question in the Streamlit frontend.
-    2.  **API Call:** The question is sent to the FastAPI `/ask` endpoint.
-    3.  **SQL Generation:** The Gemini LLM (via FastAPI) generates an appropriate SQL query based on the user's question.
-    4.  **Database Execution:** The generated SQL query is executed on the SQLite database.
-    5.  **Result Fetching:** Raw results (rows and column headers) are fetched from the database.
-    6.  **Answer Formatting:** The LLM formats these raw results into a user-friendly, descriptive answer.
-    7.  **Visualization Choice:** A suitable visualization type (e.g., bar, line, pie, scatter) is chosen based on the query and data.
-    8.  **Plot Generation:** A plot is generated using Matplotlib based on the query results and chosen visualization type.
-    9.  **Response Assembly:** The FastAPI backend prepares a response containing the JSON data, the formatted answer, and the generated plot as a Base64-encoded image.
-    10. **Frontend Display:** The Streamlit frontend receives the response and displays both the tabular data/formatted answer and the generated chart to the user.
-
+## **🔄 System Architecture**
+![system Architecture](docs/systemArchitecture.png)
 ## **📌 Example Usage**
 
 **User Question:**
