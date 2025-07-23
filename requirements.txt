@@ -1,0 +1,10 @@
+langchain
+langgraph
+langsmith
+google-generative
+streamlit
+fastapi
+uvicorn
+pandas
+os
+dotenv

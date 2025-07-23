@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Streamlit cache
+.streamlit/
+
+# Build/distribution
+dist/
+build/
+*.egg-info
+
+# Local databases
+*.db
+*.sqlite3
+
+# Logs
+*.log
+logs/
