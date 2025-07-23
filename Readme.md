@@ -1,7 +1,4 @@
-Got it — you want **one single markdown file with NO breaks or code blocks splitting the flow**.
-Here's your **entire README.md content in one uninterrupted block** for direct copy-paste:
 
----
 
 # 🛒 E-commerce Data Analysis Agent
 
@@ -85,10 +82,3 @@ README.md
 * Export visualizations as downloadable reports.
 * Add authentication for secure access.
 
-## **🚀 Author**
-
-**Your Name** – AI/ML & Backend Developer
-
----
-
-Would you like me to **embed an ASCII diagram of the flow directly in this single block** (no code tags, pure text)?
