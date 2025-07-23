@@ -31,15 +31,15 @@ def ask_question(req: QuestionRequest):
         user_friendly_answer = format_result_with_llm(req.question, sql_query, result)
 
         # Visualization
-        chart_type = choose_visualization(req.question, schema, result)
-        chart_image = generate_plot(result, chart_type, req.question)
+        chart_info = choose_visualization(req.question, schema, result)
+        chart_image = generate_plot(result, chart_info, req.question)
 
         return {
             "question": req.question,
             "sql_query": sql_query,
             "result": result,
             "answer": user_friendly_answer,
-            "visualization_type": chart_type,
+            "visualization_type": chart_info.get("chart_type"),
             "visualization_image": chart_image  # Base64-encoded image
         }
 

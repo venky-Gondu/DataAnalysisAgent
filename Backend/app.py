@@ -208,11 +208,11 @@ if st.button("🔍 Analyze Data", type="primary"):
                             st.write(df.describe())
 
                 # ------------------ Visualization ------------------
-               # ------------------ Visualization ------------------
-                chart_image = data.get("visualization_image")  # Get Base64 string from backend
+               
+                chart_image = data.get("visualization_image")
                 chart_type = data.get("visualization_type", "none")
 
-                if chart_image and chart_type != "none":
+                if chart_type != "none" and chart_image:
                     st.subheader(f"📈 Visualization ({chart_type.capitalize()})")
                     import base64
                     from io import BytesIO
@@ -224,10 +224,9 @@ if st.button("🔍 Analyze Data", type="primary"):
                         st.image(image, use_container_width=True)
                     except Exception as e:
                         st.warning(f"⚠️ Could not load visualization: {e}")
-
-
                 else:
-                    st.error(f"❌ API Error: {response.status_code} – {response.text}")
+                    st.info("ℹ️ No visualization available for this query.")
+
 
             except requests.exceptions.ConnectionError:
                 st.error("🔌 **Connection Failed**: Could not reach the backend API. Make sure FastAPI server is running at `http://127.0.0.1:8000`")

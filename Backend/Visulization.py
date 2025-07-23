@@ -1,32 +1,46 @@
+import json
+import pandas as pd
 from LLM import LLM
+
 llm = LLM(model_name="gemini-2.0-flash-lite-001")
 
-def choose_visualization(question: str, schema: dict, result) -> str:
+import json
+import pandas as pd
+from LLM import LLM
+
+llm = LLM(model_name="gemini-2.0-flash-lite-001")
+
+def choose_visualization(question: str, schema: dict, result) -> dict:
     """
-    Use LLM to decide which visualization to use.
-    Returns: bar, horizontal_bar, scatter, pie, line, or none.
+    Decide chart type using LLM but keep x/y labels as column names.
     """
+    df = pd.DataFrame(result)
+    columns = list(df.columns)
+
+    if len(columns) < 2:
+        return {"chart_type": "none"}
+
+    x_col, y_col = columns[0], columns[1]
+
     prompt = f"""
     You are a data visualization expert.
     
     User Question: {question}
     Database Schema: {schema}
-    Query Result: {result}
+    Query Columns: {columns}
 
-    Decide if a visualization is useful:
-    - If the result has a single numeric value or very few rows, return "none".
-    - Otherwise, choose one of these: bar, horizontal_bar, pie, line, scatter.
-
-    Rules:
-    - 'bar': compare categories.
-    - 'horizontal_bar': many categories or long names.
-    - 'pie': show percentages of a whole.
-    - 'line': time-series or sequential data.
-    - 'scatter': relationship between two numeric variables.
-
-    Return ONLY: bar, horizontal_bar, pie, line, scatter, or none.
+    Choose the best chart type: bar, horizontal_bar, pie, line, scatter, or none.
     """
 
     response = llm.invoke(prompt).strip().lower()
-    print("DEBUG: Suggested Visualization =", response)
-    return response
+    if response not in ["bar", "horizontal_bar", "pie", "line", "scatter"]:
+        response = "bar"
+
+    return {
+        "chart_type": response,
+        "x_col": x_col,
+        "y_col": y_col,
+        "x_label": x_col,
+        "y_label": y_col
+    }
+
