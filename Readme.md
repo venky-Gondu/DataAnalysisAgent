@@ -61,16 +61,12 @@ User enters question in Streamlit → FastAPI `/ask` endpoint → Gemini LLM gen
 * Product 21 has the highest sales with \$168,856.46.
 * Visualization: Bar Chart of top products.
 
-## **Where to Add Images**
-
-You can insert your **screenshots directly after the relevant example output** like this:
-
-```markdown
 ### AI Answer with Visualization:
-![AI Answer Screenshot](D:/DataAnalysisAgent/OutputImages/Screenshot 2025-07-23 115809.png)
+![AI Answer Screenshot](docs/images/ai_answer.png)
 
 ### Generated Line Graph:
-![Sales Trend Graph](D:\DataAnalysisAgent\OutputImages\Screenshot 2025-07-23 120214.png)
+![Sales Trend Graph](docs/images/sales_trend.png)
+
 
 ## **📂 Project Structure**
 
