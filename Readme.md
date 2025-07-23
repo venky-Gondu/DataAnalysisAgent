@@ -62,10 +62,10 @@ User enters question in Streamlit → FastAPI `/ask` endpoint → Gemini LLM gen
 * Visualization: Bar Chart of top products.
 
 ### AI Answer with Visualization:
-![AI Answer Screenshot](docs/images/ai_answer.png)
+![AI Answer Screenshot](docs/ai_answer.png)
 
 ### Generated Line Graph:
-![Sales Trend Graph](docs/images/sales_trend.png)
+![Sales Trend Graph](docs/sales_trend.png)
 
 
 ## **📂 Project Structure**
